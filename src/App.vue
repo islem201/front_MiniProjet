@@ -20,7 +20,6 @@ const recherche = ref('');
 const showModal = ref(false);
 const itemToEdit = ref(null);
 
-// Fonctionnalité de recherche demandée [cite: 42]
 const listeFiltree = computed(() => {
   if (!recherche.value) return medicaments.value;
   return medicaments.value.filter((m) =>
@@ -34,7 +33,6 @@ const openAdd = () => {
 };
 
 const openEdit = (med) => {
-  // On passe une copie pour ne pas modifier l'original avant la validation
   itemToEdit.value = { ...med };
   showModal.value = true;
 };
@@ -45,7 +43,7 @@ const handleSave = async (medData) => {
 };
 
 onMounted(() => {
-  chargerMedicaments(); // Afficher le contenu de la pharmacie au chargement [cite: 37]
+  chargerMedicaments();
 });
 </script>
 
